@@ -10,3 +10,38 @@ The application also includes a community-driven rating system where users can r
 The backend of the platform is powered by PHP and MySQL, ensuring efficient data management and user authentication. HTML, CSS, and JavaScript are used for the frontend to create a responsive and interactive user interface. The Google Maps JavaScript API is the backbone of the routing and mapping features, enabling precise route calculations and visualization. For weather updates, the platform integrates with a weather API, fetching live data for the selected route and displaying it in an easily comprehensible format.
 
 Overall, this project is a powerful tool for travelers, commuters, and logistics operations, combining cutting-edge technologies and user contributions to create a dynamic, real-time navigation platform. With its integration of Google Maps and weather data, robust backend, and interactive user experience, the application stands as a practical and innovative solution for modern travel challenges.
+
+
+STEPS:
+Search for Routes:
+
+Users begin by accessing the Google Maps interface integrated into the application.
+They enter their source location, destination, and optional waypoints to customize their route.
+The application uses the Google Maps JavaScript API to calculate and display multiple route options.
+
+
+Select a Route:
+
+Once the routes are displayed, users can review the options, including distance and estimated travel time.
+Upon selecting a route, the application fetches real-time weather information for the chosen path using a weather API.
+Weather data is displayed in a user-friendly format, giving users critical insights before their journey.
+
+
+Login or Register to Upload Images:
+
+To access advanced features like image uploads, users must log in or create an account.
+The platform includes a secure registration system that stores user credentials in the backend database.
+Once logged in, users can upload images of the selected route and associated weather conditions.
+
+
+View and Rate Uploaded Images:
+
+Uploaded images are made available for viewing by all users.
+Other users can provide ratings for the images based on their relevance and accuracy.
+Each rating contributes to the uploader's credit score, rewarding them for their helpful contributions.
+
+
+Time-Limited Image Display:
+
+To maintain the accuracy and relevance of updates, the system automatically removes images older than 12 hours.
+This ensures that users only view the most current and actionable updates for their routes.
