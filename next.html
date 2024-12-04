@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Route Images</title>
+  <link rel="stylesheet" href="style/next.css">
+</head>
+<body>
+  <?php
+  session_start();
+  // Redirect to login page if not logged in
+  if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+      header("Location: login.php");
+      exit;
+  }
+  ?>
+
+  <h1 id="upimgs">Upload Images for Routes</h1>
+
+  <div id="route-info">
+    <p><strong>Distance:</strong> <span id="distance">N/A</span></p>
+    <p><strong>Duration:</strong> <span id="duration">N/A</span></p>
+    <p><strong>Destination:</strong> <span id="destination">N/A</span></p>
+  </div>
+
+  <div id="nextblock">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <label for="route">Route Name:</label>
+      <input type="text" name="route" id="route" required>
+      <br>
+  
+      <label for="routeImage">Click or Upload Route Image:</label>
+      <!-- Hidden file input -->
+      <input type="file" name="routeImage" id="routeImage" accept="image/*" capture="environment" required style="display: none;">
+      <!-- Custom label for the file input -->
+      <label id="buttonspace" for="routeImage" class="custom-file-button">Choose Route Image</label>
+      <br>
+      <div id="onlyfornextline">
+        <label  for="weatherImage">Click or Upload Weather Image:</label>
+      <!-- Hidden file input -->
+      <input type="file" name="weatherImage" id="weatherImage" accept="image/*" capture="environment" required style="display: none;">
+      <!-- Custom label for the file input -->
+      <label id="routeimg" for="weatherImage" class="custom-file-button">Choose Weather Image</label>
+  
+      <button class="submitbutton" type="submit">Upload Images</button>
+      </div>
+      
+    </form>
+  
+    <form id="thisisform" action="view_images.php" method="get">
+      <label for="viewRoute">Enter Route Name to View Images:</label>
+      <input type="text" name="route" id="viewRoute" required>
+      <button class="submitbutton1" type="submit">See Uploaded Images</button>
+    </form>
+  </div>
+  
+
+
+  <!-- Profile Section -->
+  <div class="profile-container">
+    <button class="profile-button" onclick="toggleProfile()">👤</button>
+    <div id="usernameDisplay" class="username-display">
+      <?php if (isset($_SESSION['username'])): ?>
+      Welcome,
+      <?php echo htmlspecialchars($_SESSION['username']); ?>
+      <?php endif; ?>
+    </div>
+    <div id="userScore" class="user-score">
+      Score: <span id="scoreValue">
+        <?php echo isset($_SESSION['score']) ? htmlspecialchars($_SESSION['score']) : 0; ?>
+      </span>
+    </div>
+    <div id="loginRegisterButtons" class="login-register-buttons">
+      <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
+      <!-- Show login and register buttons if not logged in -->
+      <button onclick="window.location.href='login.php'">Login</button>
+      <button onclick="window.location.href='register.php'">Register</button>
+      <?php endif; ?>
+    </div>
+    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+    <!-- Show logout button if logged in -->
+    <button class="logout-button" id="logoutButton" onclick="logout()">Logout</button>
+    <?php endif; ?>
+  </div>
+
+  <script src="next.js"></script>
+</body>
+
+</html>

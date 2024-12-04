@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps Directions with Traffic & Distance</title>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpYWXC4GR0aVyoK3x9Fg_Dg6x4BFSSdDg&libraries=places&callback=initMap"
+    async defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <link rel="stylesheet" href="style/index.css">
+</head>
+
+<body class="clearfix">
+  <div id="map"></div>
+  <h1 class="heading">
+    <span class="traffic">Traffic</span><span class="go">Go</span>
+  </h1>
+  <div id="info">
+
+    <div id="distance">Distance: N/A</div>
+    <div id="duration">Duration: N/A</div>
+    <div class="input-group">
+      <label>Source Location: </label>
+      <input id="source" type="text" placeholder="Enter source location">
+    </div>
+    <h4 class="OR">(OR)</h4>
+    <label>
+      <input type="checkbox" id="useCurrentLocation"> Use current location as source
+    </label>
+
+    <div class="input-group">
+      <label>Destination Location: </label>
+      <input id="destination" type="text" placeholder="Enter destination location">
+    </div>
+
+    <div class="input-group">
+      <label>Way points if needed: </label>
+      <input type="text" id="waypoints" placeholder="Enter waypoints (comma separated)">
+    </div>
+    <select id="mode">
+      <option value="DRIVING">Driving</option>
+      <option value="WALKING">Walking</option>
+      <option value="BICYCLING">Bicycling</option>
+      <option value="TRANSIT">Transit</option>
+    </select>
+    <button id="calbtn" onclick="calculateRoute()">Calculate Route</button><br>
+    <div class="gap">
+      <a href="next.html" id="moreinfo-link">
+        <button class="moreinfo" style="display: none;">Click here</button>
+      </a>
+      <span id="more_info_text" style="display: none;">for more info about routes and weather</span>
+      <a href="next.html">
+        <button id="newbutton">Click here to check routes</button>
+      </a>
+    </div>
+
+  </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html> 
