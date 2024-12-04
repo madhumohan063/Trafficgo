@@ -16,29 +16,34 @@ STEPS:
 
 
 Search for Routes:
+
 Users begin by accessing the Google Maps interface integrated into the application.
 They enter their source location, destination, and optional waypoints to customize their route.
 The application uses the Google Maps JavaScript API to calculate and display multiple route options.
 
 
 Select a Route:
+
 Once the routes are displayed, users can review the options, including distance and estimated travel time.
 Upon selecting a route, the application fetches real-time weather information for the chosen path using a weather API.
 Weather data is displayed in a user-friendly format, giving users critical insights before their journey.
 
 
 Login or Register to Upload Images:
+
 To access advanced features like image uploads, users must log in or create an account.
 The platform includes a secure registration system that stores user credentials in the backend database.
 Once logged in, users can upload images of the selected route and associated weather conditions.
 
 
 View and Rate Uploaded Images:
+
 Uploaded images are made available for viewing by all users.
 Other users can provide ratings for the images based on their relevance and accuracy.
 Each rating contributes to the uploader's credit score, rewarding them for their helpful contributions.
 
 
 Time-Limited Image Display:
+
 To maintain the accuracy and relevance of updates, the system automatically removes images older than 12 hours.
 This ensures that users only view the most current and actionable updates for their routes.
